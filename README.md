@@ -3,9 +3,10 @@
 Application web de gestion de tournois de padel inter-entreprises, développée
 pour le **TP Qualité, Tests & CI/CD** de Polytech Tours (cycle ingénieur 4A/5A).
 
-> **Votre mission n'est pas de développer cette application, mais de l'éprouver :**
-> tests fonctionnels manuels, tests End-to-End (Cypress), tests back-end (pytest),
-> et construction d'une pipeline CI/CD. L'application fonctionne… en apparence.
+> **Votre mission n'est pas de développer cette application, mais de l'éprouver
+> :** tests fonctionnels manuels, tests End-to-End (Cypress), tests back-end
+> (pytest), et construction d'une pipeline CI/CD. L'application fonctionne… en
+> apparence.
 
 - **Backend** : Python 3.11+ · FastAPI · SQLAlchemy · SQLite · JWT · bcrypt
 - **Frontend** : Vue 3 · Vite · Vue Router · Pinia · axios · Tailwind CSS
@@ -17,15 +18,16 @@ pour le **TP Qualité, Tests & CI/CD** de Polytech Tours (cycle ingénieur 4A/5A
 
 Installez ces outils avant de commencer (toutes plateformes) :
 
-| Outil | Version minimale | Vérifier avec |
-|-------|------------------|---------------|
-| **Python** | 3.11, 3.12 ou 3.13 — ⚠️ **pas 3.14** | `python --version` |
-| **Node.js** | 18+ | `node --version` |
-| **npm** | 9+ | `npm --version` |
-| **Git** | — | `git --version` |
+| Outil       | Version minimale                     | Vérifier avec      |
+| ----------- | ------------------------------------ | ------------------ |
+| **Python**  | 3.11, 3.12 ou 3.13 — ⚠️ **pas 3.14** | `python --version` |
+| **Node.js** | 18+                                  | `node --version`   |
+| **npm**     | 9+                                   | `npm --version`    |
+| **Git**     | —                                    | `git --version`    |
 
-> 💡 **Windows** : à l'installation de Python, cochez **« Add Python to PATH »**.
-> Selon votre système, la commande peut être `python` ou `python3`, et `pip` ou `pip3`.
+> 💡 **Windows** : à l'installation de Python, cochez **« Add Python to PATH
+> »**. Selon votre système, la commande peut être `python` ou `python3`, et
+> `pip` ou `pip3`.
 
 > ⚠️ **Python 3.14 n'est pas supporté.** Les dépendances épinglées (notamment
 > `bcrypt` et `pydantic-core`) n'ont pas encore de paquets pré-compilés pour
@@ -33,6 +35,7 @@ Installez ces outils avant de commencer (toutes plateformes) :
 > échouerait. Utilisez **Python 3.11, 3.12 ou 3.13**.
 >
 > Si vous avez plusieurs versions installées, ciblez-en une explicitement :
+>
 > - **Windows** : `py -3.12 -m venv venv`
 > - **macOS / Linux** : `python3.12 -m venv venv`
 
@@ -52,10 +55,10 @@ aucun droit d'écriture sur le dépôt d'origine — vous ne pourriez ni pousser
 tests, ni faire tourner votre pipeline GitHub Actions, ni rendre votre travail.
 
 1. Sur GitHub, ouvrez https://github.com/AndreyPividori/Polytech_Tours_TP_QLOG
-2. Cliquez sur **Fork** (en haut à droite) pour créer une copie sur **un** compte
-   du groupe.
-3. Sur le dépôt forké, ajoutez les autres membres du groupe :
-   **Settings → Collaborators → Add people**.
+2. Cliquez sur **Fork** (en haut à droite) pour créer une copie sur **un**
+   compte du groupe.
+3. Sur le dépôt forké, ajoutez les autres membres du groupe : **Settings →
+   Collaborators → Add people**.
 4. Chaque membre clone **le fork**, pas l'original :
 
 ```bash
@@ -69,24 +72,27 @@ cd Polytech_Tours_TP_QLOG
 > 📌 C'est l'URL de **votre fork** que vous communiquerez à l'enseignant.
 > L'historique Git fait partie de l'évaluation : committez régulièrement avec
 > des messages clairs.
+
 </details>
 
 <details>
 <summary><b>🔎 Cas 2 — Vous voulez seulement faire tourner l'application</b></summary>
 
-Pour une simple prise en main (consultation, démonstration), sans rien
-modifier ni publier, un clone direct suffit :
+Pour une simple prise en main (consultation, démonstration), sans rien modifier
+ni publier, un clone direct suffit :
 
 ```bash
 git clone https://github.com/AndreyPividori/Polytech_Tours_TP_QLOG.git
 cd Polytech_Tours_TP_QLOG
 ```
 
-> ⚠️ Dans ce mode, vous ne pourrez **pas** pousser vos modifications.
-> Si vous suivez le TP, reportez-vous au **Cas 1**.
+> ⚠️ Dans ce mode, vous ne pourrez **pas** pousser vos modifications. Si vous
+> suivez le TP, reportez-vous au **Cas 1**.
+
 </details>
 
-Une fois le projet récupéré, installez le backend et le frontend (deux terminaux).
+Une fois le projet récupéré, installez le backend et le frontend (deux
+terminaux).
 
 ### 1. Backend (API FastAPI)
 
@@ -101,8 +107,10 @@ pip install -r requirements.txt
 copy .env.example .env
 ```
 
-> Si l'activation est bloquée : `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`
-> (une seule fois), puis relancez `venv\Scripts\Activate.ps1`.
+> Si l'activation est bloquée :
+> `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` (une seule fois), puis
+> relancez `venv\Scripts\Activate.ps1`.
+
 </details>
 
 <details>
@@ -115,6 +123,7 @@ source venv/bin/activate
 pip install -r requirements.txt
 cp .env.example .env
 ```
+
 </details>
 
 ### 2. Frontend (application Vue)
@@ -144,9 +153,9 @@ Depuis le dossier `backend/`, **avec l'environnement virtuel activé** :
 python seed.py
 ```
 
-> ⚠️ Le script **réinitialise** la base de données (`padel_corpo.db`) :
-> toutes les données existantes sont supprimées puis recréées.
-> Relancez-le quand vous voulez repartir d'un état propre.
+> ⚠️ Le script **réinitialise** la base de données (`padel_corpo.db`) : toutes
+> les données existantes sont supprimées puis recréées. Relancez-le quand vous
+> voulez repartir d'un état propre.
 
 ---
 
@@ -160,8 +169,8 @@ Deux terminaux, chacun dans son dossier.
 uvicorn app.main:app --reload --port 8000
 ```
 
-➡️ API disponible sur **http://localhost:8000**
-➡️ **Documentation interactive (Swagger) : http://localhost:8000/docs**
+➡️ API disponible sur **http://localhost:8000** ➡️ **Documentation interactive
+(Swagger) : http://localhost:8000/docs**
 
 ### Frontend — `frontend/`
 
@@ -177,12 +186,13 @@ npm run dev
 
 Créés par le script de seed :
 
-| Rôle | Email | Mot de passe |
-|------|-------|--------------|
-| **Administrateur** | `admin@padel.com` | `Admin@2025!` |
-| **Joueur** | `joueur@padel.com` | `Joueur@2025!` |
+| Rôle               | Email              | Mot de passe   |
+| ------------------ | ------------------ | -------------- |
+| **Administrateur** | `admin@padel.com`  | `Admin@2025!`  |
+| **Joueur**         | `joueur@padel.com` | `Joueur@2025!` |
 
-> Tous les comptes joueurs générés par le seed utilisent le mot de passe `Joueur@2025!`.
+> Tous les comptes joueurs générés par le seed utilisent le mot de passe
+> `Joueur@2025!`.
 
 ---
 
@@ -267,12 +277,12 @@ nom de votre fichier de workflow :
 
 ### Bon à savoir
 
-| Point | Détail |
-|-------|--------|
-| **Coût** | Gratuit et illimité sur un dépôt **public**. En privé : 2 000 min/mois (large pour un TP). |
-| **Isolation** | Vos exécutions n'affectent ni les autres groupes ni le dépôt d'origine. |
-| **Rendu** | C'est l'URL de **votre fork** que vous communiquez à l'enseignant : la pipeline y est visible et évaluable. |
-| **Secrets** | Si votre pipeline en nécessite : **Settings → Secrets and variables → Actions** (sur votre fork). |
+| Point         | Détail                                                                                                      |
+| ------------- | ----------------------------------------------------------------------------------------------------------- |
+| **Coût**      | Gratuit et illimité sur un dépôt **public**. En privé : 2 000 min/mois (large pour un TP).                  |
+| **Isolation** | Vos exécutions n'affectent ni les autres groupes ni le dépôt d'origine.                                     |
+| **Rendu**     | C'est l'URL de **votre fork** que vous communiquez à l'enseignant : la pipeline y est visible et évaluable. |
+| **Secrets**   | Si votre pipeline en nécessite : **Settings → Secrets and variables → Actions** (sur votre fork).           |
 
 ---
 
@@ -310,26 +320,26 @@ Polytech_Tours_TP_QLOG/
 
 ## 🆘 Dépannage
 
-| Problème | Solution |
-|----------|----------|
-| `git push` refusé : `Permission denied` / `403` | Vous avez cloné le dépôt d'origine au lieu de **votre fork**. Vérifiez avec `git remote -v` : l'URL doit contenir **votre** compte. Sinon, forkez (voir Installation, Cas 1) puis `git remote set-url origin https://github.com/VOTRE-COMPTE/Polytech_Tours_TP_QLOG.git`. |
-| Les GitHub Actions ne se déclenchent pas | Sur un fork, les workflows doivent être activés une fois : onglet **Actions** → « I understand my workflows, go ahead and enable them ». |
-| `pip install` échoue (erreur de compilation, `Rust`, `maturin`, `error: could not build wheels`) | Vous êtes probablement en **Python 3.14**, non supporté. Recréez le venv avec 3.11/3.12/3.13 : `py -3.12 -m venv venv` (Windows) ou `python3.12 -m venv venv`. |
-| `uvicorn: command not found` | L'environnement virtuel n'est pas activé. Réactivez-le (voir Installation). |
-| Port 8000 ou 5173 déjà utilisé | Fermez l'autre processus, ou changez le port (`--port`, `npm run dev -- --port 5174`). |
-| Le frontend n'atteint pas l'API | Vérifiez que le backend tourne et que `frontend/.env` contient `VITE_API_BASE_URL=http://localhost:8000/api/v1`. |
-| Erreurs CORS | Vérifiez `ALLOWED_ORIGINS` dans `backend/.env` (par défaut `http://localhost:5173`). |
-| Repartir d'une base propre | Relancez `python seed.py` depuis `backend/`. |
+| Problème                                                                                         | Solution                                                                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `git push` refusé : `Permission denied` / `403`                                                  | Vous avez cloné le dépôt d'origine au lieu de **votre fork**. Vérifiez avec `git remote -v` : l'URL doit contenir **votre** compte. Sinon, forkez (voir Installation, Cas 1) puis `git remote set-url origin https://github.com/VOTRE-COMPTE/Polytech_Tours_TP_QLOG.git`. |
+| Les GitHub Actions ne se déclenchent pas                                                         | Sur un fork, les workflows doivent être activés une fois : onglet **Actions** → « I understand my workflows, go ahead and enable them ».                                                                                                                                  |
+| `pip install` échoue (erreur de compilation, `Rust`, `maturin`, `error: could not build wheels`) | Vous êtes probablement en **Python 3.14**, non supporté. Recréez le venv avec 3.11/3.12/3.13 : `py -3.12 -m venv venv` (Windows) ou `python3.12 -m venv venv`.                                                                                                            |
+| `uvicorn: command not found`                                                                     | L'environnement virtuel n'est pas activé. Réactivez-le (voir Installation).                                                                                                                                                                                               |
+| Port 8000 ou 5173 déjà utilisé                                                                   | Fermez l'autre processus, ou changez le port (`--port`, `npm run dev -- --port 5174`).                                                                                                                                                                                    |
+| Le frontend n'atteint pas l'API                                                                  | Vérifiez que le backend tourne et que `frontend/.env` contient `VITE_API_BASE_URL=http://localhost:8000/api/v1`.                                                                                                                                                          |
+| Erreurs CORS                                                                                     | Vérifiez `ALLOWED_ORIGINS` dans `backend/.env` (par défaut `http://localhost:5173`).                                                                                                                                                                                      |
+| Repartir d'une base propre                                                                       | Relancez `python seed.py` depuis `backend/`.                                                                                                                                                                                                                              |
 
 ### Lint & CI
 
-| Problème | Solution |
-|----------|----------|
-| `npm run lint` remonte des centaines d'erreurs | Vérifiez que `frontend/.eslintignore` existe : sans lui, ESLint analyse `dist/` (code minifié) et génère un bruit énorme. Ne lintez jamais les artefacts de build. |
-| `'cy' is not defined` / `'describe' is not defined` | Les globales Cypress ne sont définies que dans les tests E2E. La config `.eslintrc.cjs` les active via `overrides` sur `cypress/**` et `*.cy.js`. |
-| « pytest ne passe pas en CI » | Vérifiez **quel step** a échoué : lint et tests sont indépendants (flake8 n'influence pas pytest). Un step en échec arrête le job — si le lint précède les tests, ceux-ci ne s'exécutent jamais. |
-| `flake8: command not found` | `flake8` est dans `requirements.txt` : faites `pip install -r requirements.txt`. La config (longueur de ligne) est dans `backend/setup.cfg`. |
-| Cypress échoue au démarrage en CI | Le backend et le frontend doivent être démarrés **et** joignables : utilisez `npx wait-on` sur les deux URL avant `cypress run`. |
+| Problème                                            | Solution                                                                                                                                                                                         |
+| --------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `npm run lint` remonte des centaines d'erreurs      | Vérifiez que `frontend/.eslintignore` existe : sans lui, ESLint analyse `dist/` (code minifié) et génère un bruit énorme. Ne lintez jamais les artefacts de build.                               |
+| `'cy' is not defined` / `'describe' is not defined` | Les globales Cypress ne sont définies que dans les tests E2E. La config `.eslintrc.cjs` les active via `overrides` sur `cypress/**` et `*.cy.js`.                                                |
+| « pytest ne passe pas en CI »                       | Vérifiez **quel step** a échoué : lint et tests sont indépendants (flake8 n'influence pas pytest). Un step en échec arrête le job — si le lint précède les tests, ceux-ci ne s'exécutent jamais. |
+| `flake8: command not found`                         | `flake8` est dans `requirements.txt` : faites `pip install -r requirements.txt`. La config (longueur de ligne) est dans `backend/setup.cfg`.                                                     |
+| Cypress échoue au démarrage en CI                   | Le backend et le frontend doivent être démarrés **et** joignables : utilisez `npx wait-on` sur les deux URL avant `cypress run`.                                                                 |
 
 ---
 
@@ -344,4 +354,4 @@ Polytech_Tours_TP_QLOG/
 
 ---
 
-*Projet pédagogique — Polytech Tours — Qualité, Test & Sécurité.*
+_Projet pédagogique — Polytech Tours — Qualité, Test & Sécurité._
